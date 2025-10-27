@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2rvekc18pgcm"]
+
+[ext_resource type="Texture2D" uid="uid://c82alavjvnxid" path="res://icon.svg" id="1_6ovpx"]
+[ext_resource type="Script" uid="uid://b6j45su0xkj7j" path="res://scripts/garden_pot.gd" id="1_oaysy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oaysy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oaysy"]
+size = Vector2(128, 128)
+
+[node name="Pot" type="Node2D"]
+script = ExtResource("1_oaysy")
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = ExtResource("1_6ovpx")
+
+[node name="Sapling" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+material = SubResource("ShaderMaterial_oaysy")
+position = Vector2(0, -54)
+scale = Vector2(0.125, 1)
+texture = ExtResource("1_6ovpx")
+
+[node name="PlantTreeBtn" type="Button" parent="."]
+visible = false
+offset_left = -75.0
+offset_top = -120.0
+offset_right = 74.0
+offset_bottom = -89.0
+text = "Plant a tree ($100)"
+
+[node name="InsertTapBtn" type="Button" parent="."]
+visible = false
+offset_left = -48.0
+offset_top = -120.0
+offset_right = 49.0
+offset_bottom = -89.0
+text = "Insert a tap
+"
+
+[node name="WatterBtn" type="Button" parent="."]
+visible = false
+offset_left = -72.0
+offset_top = -120.0
+offset_right = 79.0
+offset_bottom = -89.0
+text = "Watter the sapling
+"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_oaysy")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
