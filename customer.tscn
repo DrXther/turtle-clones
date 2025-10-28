@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource path="res://scripts/customer.gd" type="Script" id=1]
+[ext_resource path="res://assets/customer.png" type="Texture2D" id=2]
+
+[node name="Customer" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite2D" type="Sprite2D" parent="Customer"]
+texture = ExtResource( 2 )
+position = Vector2(0, 0)
+scale = Vector2(0.6, 0.6)
+
+[node name="Label" type="Label" parent="Customer"]
+text = "Chcę syrop klonowy 🍁"
+position = Vector2(0, 80)
