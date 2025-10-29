@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://mqd32kg1cdn1"]
+[gd_scene load_steps=4 format=3 uid="uid://mqd32kg1cdn1"]
 
 [ext_resource type="Script" uid="uid://8u3p1tyuujex" path="res://scripts/tree_plantation.gd" id="1_qsj47"]
 [ext_resource type="PackedScene" uid="uid://b2rvekc18pgcm" path="res://scenes/garden_pot.tscn" id="1_yn0pw"]
+[ext_resource type="PackedScene" uid="uid://c6a0lqgjlgynr" path="res://shed/shed.tscn" id="3_xufby"]
 
 [node name="Tree_plantation" type="Node2D"]
 script = ExtResource("1_qsj47")
@@ -41,12 +42,17 @@ offset_left = -663.0
 offset_top = -366.0
 offset_right = -487.0
 offset_bottom = -276.0
+text = "save & exit to menu"
+
+[node name="Node2D" parent="." instance=ExtResource("3_xufby")]
+visible = false
 
 [node name="Button_Workspace" type="Button" parent="."]
-offset_left = -651.0
-offset_top = -247.0
-offset_right = -479.0
-offset_bottom = -156.0
+offset_left = -649.0
+offset_top = 167.0
+offset_right = -477.0
+offset_bottom = 258.0
 text = "warsztat"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button_Workspace" to="." method="_on_button_workspace_pressed"]

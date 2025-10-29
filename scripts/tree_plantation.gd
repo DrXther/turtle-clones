@@ -10,3 +10,7 @@ func _ready() -> void:
 func _on_button_pressed() -> void:
 	PlayerResorces.save_game()
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+
+func _on_button_workspace_pressed() -> void:
+	$Node2D.visible = false if $Node2D.visible else true
