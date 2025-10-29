@@ -15,6 +15,10 @@ run/main_scene="uid://mqd32kg1cdn1"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PlayerResorces="*res://scripts/player_resorces.gd"
+
 [input]
 
 Click={

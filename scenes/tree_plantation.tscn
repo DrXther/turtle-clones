@@ -3,25 +3,30 @@
 [ext_resource type="Script" uid="uid://8u3p1tyuujex" path="res://scripts/tree_plantation.gd" id="1_qsj47"]
 [ext_resource type="PackedScene" uid="uid://b2rvekc18pgcm" path="res://scenes/garden_pot.tscn" id="1_yn0pw"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Tree_plantation" type="Node2D"]
 script = ExtResource("1_qsj47")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.85, 0.85)
 
 [node name="Pot" parent="." instance=ExtResource("1_yn0pw")]
-position = Vector2(-248, -112)
+position = Vector2(-256, -64)
 
 [node name="Pot2" parent="." instance=ExtResource("1_yn0pw")]
-position = Vector2(0, -112)
+position = Vector2(256, -64)
 
 [node name="Pot3" parent="." instance=ExtResource("1_yn0pw")]
-position = Vector2(248, -112)
+position = Vector2(-256, 256)
+
+[node name="Pot4" parent="." instance=ExtResource("1_yn0pw")]
+position = Vector2(256, 256)
 
 [node name="Debug_label" type="Label" parent="."]
 offset_left = -541.0
 offset_top = -284.0
 offset_right = -465.0
 offset_bottom = -249.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Money" type="Label" parent="."]
 offset_left = 454.0
@@ -29,3 +34,4 @@ offset_top = -306.0
 offset_right = 557.0
 offset_bottom = -282.0
 text = "Lorem Ipsum"
+metadata/_edit_use_anchors_ = true
