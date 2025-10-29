@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://n0d85g5xptm2"]
+
+[ext_resource type="Script" uid="uid://bumtad0kx08cx" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6cm7")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button_Continue" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "C"
+
+[node name="Button_NewGame" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "N"
+
+[node name="Button_Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "E"
