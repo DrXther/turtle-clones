@@ -1,12 +1,14 @@
 extends Node2D
 
 
-var x = 10
+
+var sap_buckets = 10
 var potunmade=0
 var iscooking=false
 var potmade=0
 var bottled = 0
 const pot_full=5
+
 
 func _ready() -> void:
 	pass
@@ -16,26 +18,28 @@ func _ready() -> void:
 
 
 #this doesnt work
-#func _process(delta: float) -> void:
-#	$Label.text = "surowica: " + str(x) +"\nw garnku: " + str(potunmade+potmade) + "\nbutelki: " + str(bottled)
+func _process(delta: float) -> void:
+	$Label.text = "surowica: " + str(sap_buckets) +"\nw garnku: " + str(potunmade+potmade) + "\nbutelki: " + str(bottled)
 
 
 
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_pot_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if iscooking==false and x>0 and potunmade<pot_full and potmade==0:
-			x-=1
+		if iscooking==false and sap_buckets>0 and potunmade<pot_full and potmade==0:
+			sap_buckets-=1
 			potunmade+=1
 			if potunmade==1:
 				$Pot/AnimatedSprite2D.play("uncooked")
 
 
 func _on_stove_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and potmade==0 and potunmade>0:
 		iscooking = true
 		$Pot/AnimatedSprite2D.play("cooking")
 		$Stove/AnimatedSprite2D.play("hot")
 		$Timer.start()
+		$AnimationPlayer.play("timer") 
+		#if upgrades then different time
 #add lid?
 
 
@@ -45,6 +49,7 @@ func _on_timer_timeout() -> void:
 	$Stove/AnimatedSprite2D.play("cold")
 	potmade=potunmade
 	potunmade=0
+
 
 
 func _on_bottle_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:

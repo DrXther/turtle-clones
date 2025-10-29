@@ -2,6 +2,98 @@
 
 [ext_resource type="Script" uid="uid://c5why8fl1mw8g" path="res://shed/shed.gd" id="1_em5n0"]
 [ext_resource type="Texture2D" uid="uid://besk21tgfr3b0" path="res://greatest assets/Untitled2.png" id="2_mfbjf"]
+[ext_resource type="PackedScene" uid="uid://ci0uvdya1nosg" path="res://shed/stove.tscn" id="3_em5n0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfbjf"]
+atlas = ExtResource("2_mfbjf")
+region = Rect2(0, 175, 193, 175)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ifk6"]
+atlas = ExtResource("2_mfbjf")
+region = Rect2(0, 0, 193, 175)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_35efx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfbjf")
+}],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ifk6")
+}],
+"loop": true,
+"name": &"full",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohrg2"]
+size = Vector2(85, 130)
+
+[sub_resource type="Animation" id="Animation_em5n0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ProgressBar:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ProgressBar:value")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ohrg2"]
+resource_name = "timer"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ProgressBar:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ProgressBar:value")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 100.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mfbjf"]
+_data = {
+&"RESET": SubResource("Animation_em5n0"),
+&"timer": SubResource("Animation_ohrg2")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_35efx"]
 atlas = ExtResource("2_mfbjf")
@@ -19,7 +111,7 @@ region = Rect2(213, 513, 255, 171)
 atlas = ExtResource("2_mfbjf")
 region = Rect2(213, 171, 255, 171)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_2m1mw"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_em5n0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -54,68 +146,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_em5n0"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mfbjf"]
 size = Vector2(183, 118)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ohrg2"]
-atlas = ExtResource("2_mfbjf")
-region = Rect2(555, 0, 199, 175)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_em5n0"]
-atlas = ExtResource("2_mfbjf")
-region = Rect2(555, 171, 199, 132)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_mfbjf"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ohrg2")
-}],
-"loop": true,
-"name": &"cold",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_em5n0")
-}],
-"loop": true,
-"name": &"hot",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ifk6"]
-size = Vector2(180.25, 54)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mfbjf"]
-atlas = ExtResource("2_mfbjf")
-region = Rect2(0, 175, 193, 175)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6ifk6"]
-atlas = ExtResource("2_mfbjf")
-region = Rect2(0, 0, 193, 175)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_35efx"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mfbjf")
-}],
-"loop": true,
-"name": &"empty",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6ifk6")
-}],
-"loop": true,
-"name": &"full",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohrg2"]
-size = Vector2(85, 130)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_em5n0")
@@ -123,42 +155,22 @@ script = ExtResource("1_em5n0")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Label" type="Label" parent="."]
-offset_left = -558.0
-offset_top = -310.0
-offset_right = -203.0
-offset_bottom = -135.0
+offset_left = -571.0
+offset_top = -321.0
+offset_right = -216.0
+offset_bottom = -188.0
+text = "this is supposed to display stats
+
+press pot to fill
+press stove to cook
+press bottle t"
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 8.128
-
-[node name="Pot" type="Area2D" parent="."]
-top_level = true
-position = Vector2(-7, 22)
-collision_priority = 2.0
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pot"]
-position = Vector2(4, -15)
-sprite_frames = SubResource("SpriteFrames_2m1mw")
-animation = &"empty"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pot"]
-position = Vector2(0, -11)
-shape = SubResource("RectangleShape2D_em5n0")
-
-[node name="Stove" type="Area2D" parent="."]
-position = Vector2(11, 27)
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Stove"]
-position = Vector2(-20, 73)
-sprite_frames = SubResource("SpriteFrames_mfbjf")
-animation = &"cold"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stove"]
-position = Vector2(-18.125, 75)
-shape = SubResource("RectangleShape2D_6ifk6")
+wait_time = 8.0
+one_shot = true
 
 [node name="Bottle" type="Area2D" parent="."]
-position = Vector2(279, 25)
+position = Vector2(143, 7)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bottle"]
 position = Vector2(107, -15)
@@ -169,8 +181,38 @@ animation = &"full"
 position = Vector2(108, -8)
 shape = SubResource("RectangleShape2D_ohrg2")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mfbjf")
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = -264.0
+offset_top = -133.0
+offset_right = -164.0
+offset_bottom = -121.0
+show_percentage = false
+
+[node name="Stove" parent="." instance=ExtResource("3_em5n0")]
+position = Vector2(-268, 19)
+script = null
+
+[node name="Pot" type="Area2D" parent="."]
+top_level = true
+position = Vector2(-121, -89)
+collision_priority = 2.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pot"]
+position = Vector2(-142, 7)
+sprite_frames = SubResource("SpriteFrames_em5n0")
+animation = &"empty"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pot"]
+position = Vector2(-148, 9)
+shape = SubResource("RectangleShape2D_mfbjf")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="input_event" from="Pot" to="." method="_on_area_2d_input_event"]
-[connection signal="input_event" from="Pot" to="Pot/AnimatedSprite2D" method="_on_area_2d_input_event"]
-[connection signal="input_event" from="Stove" to="." method="_on_stove_input_event"]
 [connection signal="input_event" from="Bottle" to="." method="_on_bottle_input_event"]
+[connection signal="input_event" from="Stove" to="." method="_on_stove_input_event"]
+[connection signal="input_event" from="Pot" to="." method="_on_pot_input_event"]
