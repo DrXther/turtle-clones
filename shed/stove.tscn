@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://ci0uvdya1nosg"]
+
+[ext_resource type="Texture2D" uid="uid://besk21tgfr3b0" path="res://greatest assets/Untitled2.png" id="1_wclti"]
+
+[sub_resource type="GDScript" id="GDScript_wclti"]
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohrg2"]
+atlas = ExtResource("1_wclti")
+region = Rect2(555, 0, 199, 175)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_em5n0"]
+atlas = ExtResource("1_wclti")
+region = Rect2(555, 171, 199, 132)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mfbjf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohrg2")
+}],
+"loop": true,
+"name": &"cold",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_em5n0")
+}],
+"loop": true,
+"name": &"hot",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ifk6"]
+size = Vector2(180.25, 54)
+
+[node name="Stove" type="Area2D"]
+script = SubResource("GDScript_wclti")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-5, 1)
+sprite_frames = SubResource("SpriteFrames_mfbjf")
+animation = &"cold"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -2)
+shape = SubResource("RectangleShape2D_6ifk6")
