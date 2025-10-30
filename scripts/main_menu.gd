@@ -21,7 +21,6 @@ func _on_continue_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/tree_plantation.tscn")
 
 func _on_new_game_pressed() -> void:
-	# TODO: Skasuj stary save jeśli istnieje
 	if FileAccess.file_exists(SAVE_PATH):
 		DirAccess.remove_absolute(ProjectSettings.globalize_path(SAVE_PATH))
 	get_tree().change_scene_to_file("res://scenes/tree_plantation.tscn")

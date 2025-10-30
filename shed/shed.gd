@@ -25,7 +25,6 @@ func _process(_delta: float) -> void:
 
 
 func _on_pot_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	print("pot 0")
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if iscooking==false and PlayerResorces.sap_buckets>0 and potunmade<pot_full and potmade==0:
 			PlayerResorces.sap_buckets-=1
@@ -34,8 +33,7 @@ func _on_pot_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) ->
 				$Pot/AnimatedSprite2D.play("uncooked")
 
 
-func _on_stove_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	print("stove 0")
+func _on_stove_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and potmade==0 and potunmade>0:
 		iscooking = true
 		$Pot/AnimatedSprite2D.play("cooking")
@@ -56,7 +54,6 @@ func _on_timer_timeout() -> void:
 
 
 func _on_bottle_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	print("bottle 0")
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if potmade>0:
 			PlayerResorces.maple_syroup_bottles += 1
